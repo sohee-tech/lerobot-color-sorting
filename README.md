@@ -1,22 +1,22 @@
 # 🤖 LeRobot Color Sorting with Imitation Learning
 
-An imitation learning project using the **LeRobot SO-101 robotic arm** for autonomous color sorting.
+A robotics project that applies **imitation learning** to enable a LeRobot SO-101 robotic arm to autonomously sort colored cubes.
 
-This project demonstrates the complete workflow of robot calibration, teleoperation-based data collection, vision-based color detection, ACT policy training, and real-world evaluation.
+This project covers the complete workflow from robot setup and teleoperation-based data collection to ACT policy training and real-world evaluation.
 
 ---
 
 ## 📌 Project Overview
 
-The goal of this project is to train a robotic arm to autonomously sort colored cubes using imitation learning.
+The objective of this project is to train a robotic arm to perform a simple color sorting task through imitation learning.
 
-Human demonstrations were collected through teleoperation with the SO-101 leader/follower robot system. The collected dataset was then used to train an **ACT (Action Chunking Transformer)** policy, enabling the robot to perform the sorting task autonomously.
+Human demonstrations were collected using the SO-101 leader/follower teleoperation system. The collected dataset was then used to train an **ACT (Action Chunking Transformer)** policy provided by the LeRobot framework.
 
 ---
 
 ## 🎯 Task
 
-The robot performs the following task:
+The robot learns to perform the following task:
 
 - Pick up the **red cube** and place it into the **left bin**
 - Pick up the **green cube** and place it into the **right bin**
@@ -25,18 +25,16 @@ The robot performs the following task:
 
 ## ✨ My Contributions
 
-During this project, I personally completed the following tasks:
+During this project, I:
 
 - Assembled and configured the LeRobot SO-101 leader/follower robotic arms
-- Performed motor setup and robot calibration
-- Configured USB cameras for front and wrist views
-- Collected demonstration datasets using teleoperation
-- Recorded approximately **140 demonstration episodes**
-- Modified and tested OpenCV-based color detection
-- Changed the color detection pipeline from **Red/Blue** to **Red/Green**
-- Trained an ACT policy using the collected dataset
+- Performed robot calibration before experiments
+- Configured front and wrist cameras for data collection
+- Modified an OpenCV-based color detection program from **Red/Blue** to **Red/Green**
+- Collected approximately **140 teleoperation demonstrations**
+- Trained an ACT policy using the collected demonstrations
 - Evaluated the trained policy on the real robot
-- Improved green cube performance by collecting additional demonstration data
+- Collected additional demonstrations focused on green cube manipulation
 
 ---
 
@@ -46,7 +44,7 @@ During this project, I personally completed the following tasks:
 - LeRobot SO-101 Follower Robot
 - USB Front Camera
 - USB Wrist Camera
-- NVIDIA GPU (CUDA)
+- NVIDIA GPU
 
 ---
 
@@ -61,21 +59,29 @@ During this project, I personally completed the following tasks:
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Structure
 
 ```text
 lerobot-color-sorting/
 │
-├── color_test.py          # OpenCV color detection
 ├── README.md
-└── .gitignore
+├── color_test.py
+├── docs/
+│   ├── setup.md
+│   ├── training.md
+│   └── evaluation.md
+│
+├── images/
+│
+├── .gitignore
+└── LICENSE
 ```
 
 ---
 
 ## 🎨 Color Detection
 
-A custom OpenCV script was used to detect colored cubes before data collection.
+The project includes a Python program (`color_test.py`) for real-time color detection using OpenCV.
 
 Main features:
 
@@ -85,39 +91,24 @@ Main features:
 - Bounding box visualization
 - Real-time camera display
 
-The original implementation was modified to replace blue cube detection with green cube detection.
+The original color detection pipeline was modified to detect **red and green cubes** instead of **red and blue cubes**.
 
 ---
 
-## 🤖 Robot Calibration
+## 📦 Dataset
 
-The robot system was calibrated before every experiment.
-
-Main steps:
-
-- Motor setup
-- Leader calibration
-- Follower calibration
-- Camera configuration
-
----
-
-## 📦 Dataset Collection
-
-Demonstration data was collected through teleoperation.
-
-Dataset summary:
+Human demonstrations were collected through teleoperation.
 
 | Dataset | Episodes |
 |---------|----------:|
 | Red & Green Sorting | 100 |
-| Green-only Boost | 40 |
+| Green-only Demonstrations | 40 |
 | **Total** | **140** |
 
-Each demonstration includes:
+The collected data includes:
 
-- Front camera image
-- Wrist camera image
+- Front camera images
+- Wrist camera images
 - Robot joint states
 - Robot actions
 
@@ -125,78 +116,64 @@ Each demonstration includes:
 
 ## 🧠 Policy Training
 
-The collected demonstrations were used to train an **ACT (Action Chunking Transformer)** policy.
+The collected demonstrations were used to train an **ACT (Action Chunking Transformer)** policy using the LeRobot framework.
 
 Training configuration:
 
-- Policy: ACT
-- Framework: LeRobot
-- Device: CUDA
-- Batch Size: 64
-- Training Steps: 10,000
+| Parameter | Value |
+|-----------|-------|
+| Policy | ACT |
+| Device | CUDA |
+| Batch Size | 64 |
+| Training Steps | 10,000 |
+
+More details are available in **docs/training.md**.
 
 ---
 
 ## 🚀 Evaluation
 
-The trained policy was evaluated on the real robot.
+The trained policy was evaluated on the real SO-101 robotic arm.
 
-Evaluation procedure:
+The evaluation process included:
 
-1. Load trained ACT policy
-2. Observe camera images
-3. Predict robot actions
-4. Execute autonomous manipulation
-5. Record evaluation results
+1. Loading the trained ACT policy
+2. Capturing images from the robot cameras
+3. Predicting robot actions
+4. Executing autonomous manipulation
+5. Recording the evaluation results
 
----
-
-## 📈 Results
-
-- Successfully collected over **140** demonstrations
-- Trained an ACT policy for robotic manipulation
-- Performed autonomous color sorting on a real robot
-- Improved green cube performance through additional demonstrations
+More details are available in **docs/evaluation.md**.
 
 ---
 
 ## 📖 Skills Demonstrated
 
-This project helped develop practical experience in:
-
-- Robot manipulation
-- Robot calibration
+- Robot Assembly
+- Robot Calibration
 - Teleoperation
-- Imitation Learning
 - Computer Vision
 - OpenCV
-- Deep Learning
-- ACT Policy
+- Imitation Learning
+- ACT Policy Training
 - Dataset Collection
-- Real Robot Experiments
+- Real Robot Evaluation
 
 ---
 
 ## 🔮 Future Work
 
-Potential improvements include:
+Possible future improvements include:
 
-- Object detection using deep learning models
-- Multi-object sorting
-- Automatic failure recovery
-- Additional camera viewpoints
-- Generalization to unseen objects
+- Object detection using deep learning
+- Multi-object manipulation
+- Improved robustness under different lighting conditions
+- Better generalization to unseen object positions
 
 ---
 
 ## 🙏 Acknowledgements
 
-This project is built upon the **LeRobot** framework.
+This project was developed using the **LeRobot** framework.
 
-My primary contributions include:
-
-- Robot setup and calibration
-- Dataset collection
-- OpenCV-based color detection
-- ACT policy training
-- Experimental evaluation on the real robot
+My contributions focused on robot setup, data collection, OpenCV-based color detection, policy training, and real-world evaluation.
