@@ -60,7 +60,7 @@ I carried out the project setup and experiment workflow directly, including:
 - Set up and debugged teleoperation between the two arms
 - Integrated front and wrist USB cameras
 - Modified an OpenCV color-detection program from **Red/Blue** to **Red/Green**
-- Collected approximately **140 teleoperation demonstrations**
+- Collected **150 teleoperation demonstrations (100 initial + 50 green-focused)**
 - Trained an **ACT (Action Chunking Transformer)** policy
 - Evaluated the trained policy on the physical follower robot
 - Collected additional demonstrations focused on green-cube manipulation
@@ -176,8 +176,8 @@ Human demonstrations were collected through leader/follower teleoperation.
 | Dataset | Episodes |
 |---------|----------:|
 | Red & Green Sorting | 100 |
-| Green-focused Demonstrations | 40 |
-| **Total** | **140** |
+| Green-focused Demonstrations | 50 |
+| **Total** | **150** |
 
 The demonstration data includes:
 
@@ -235,6 +235,10 @@ The evaluation process included:
 4. Predicting the next robot actions
 5. Executing the actions on the real arm
 6. Observing task performance and collecting additional demonstrations where needed
+
+### Green-Cube Task Evaluation
+
+In repeated physical-robot trials, green-cube task success increased from **2/10 (20%)** before the targeted data collection to **6/10 (60%)** after collecting **50 additional green-focused demonstrations** and retraining with more consistent lighting. These are 10-trial task-specific observations, not a broad statistical benchmark.
 
 More details are available in **docs/evaluation.md**.
 
@@ -303,7 +307,7 @@ Possible extensions include:
 - Multi-object manipulation
 - Generalization to unseen cube positions
 - Larger and more diverse demonstration datasets
-- Quantitative success-rate evaluation across repeated trials
+- Larger-scale quantitative evaluation across more trials and conditions
 
 ---
 
