@@ -22,11 +22,11 @@ Two datasets were collected.
 To improve the success rate for green cube manipulation, an additional dataset was collected.
 
 - Task: Pick the green cube and place it in the right bin
-- Demonstrations: 40 episodes
+- Demonstrations: 50 episodes
 
 Total demonstrations:
 
-- **140 episodes**
+- **150 episodes**
 
 ---
 
@@ -60,4 +60,4 @@ lerobot-train \
 
 The trained ACT policy was successfully deployed on the SO-101 robotic arm and evaluated on real-world color sorting tasks.
 
-Additional demonstrations for the green cube improved the policy's performance.
+After collecting 50 additional green-focused demonstrations under more consistent lighting and retraining, green-cube task success in 10 physical-robot trials increased from 2/10 to 6/10. These small-sample results are task-specific.
