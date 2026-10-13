@@ -67,6 +67,17 @@ The evaluation confirmed that the robot could perform the learned manipulation t
 
 ---
 
+### Green-Cube Task: Repeated-Trial Result
+
+| Condition | Successes / Trials | Observed Success Rate |
+|-----------|-------------------:|----------------------:|
+| Initial training | 2 / 10 | 20% |
+| After 50 additional green-focused episodes and retraining | 6 / 10 | 60% |
+
+The additional demonstrations were collected with more consistent lighting after a change in illumination was identified during earlier collection. These results describe a specific task across 10 trials per condition, rather than a general performance benchmark.
+
+---
+
 ## Future Improvements
 
 - Increase the number of training demonstrations.
